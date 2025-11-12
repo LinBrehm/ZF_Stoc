@@ -1,0 +1,1587 @@
+\chapter{Wahrscheindlichkeitsmodelle}
+\subsection{Grundmengen $\Omega$}
+Bsp. Würfel (fair):
+\begin{equation*}
+    \Omega = \{1,2,3,4,5,6\}
+\end{equation*}
+Bsp. 1-facher Münzwurf:
+\begin{equation*}
+    \Omega = \{K,Z\}
+\end{equation*}
+Bsp. 2-facher Münzwurf:
+\begin{equation*}
+    \Omega = \{KK,KZ,ZK,ZZ\}
+\end{equation*}
+Bsp. 1-facher Münzwurf mit 2 Münzen:
+\begin{equation*}
+    \Omega = \{KK,KZ,ZK,ZZ\}\text{ mit Reihenfolge}
+\end{equation*}
+\begin{equation*}
+    \Omega = \{KK,KZ,ZZ\}\text{ ohne Reihenfolge}
+\end{equation*}
+%-----------------------------------------------------------------%
+
+\subsection{Operatoren der Mengenlehre}
+$A$ ist Teilmenge von $\Omega$
+\begin{equation*}
+    A \subseteq \Omega
+\end{equation*}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pictures/Operatoren_der_Mengenlehre.png}
+    \includegraphics[width=0.8\linewidth]{pictures/Mengenlehre_Graphisch.png}
+\end{figure}
+
+De Morgan - Regeln
+\begin{equation*}
+    \overline{A \cap B} = \overline{A}\cup\overline{B}
+\end{equation*}
+\begin{equation*}
+    \overline{A \cup B} = \overline{A}\cap\overline{B}
+\end{equation*}
+%-----------------------------------------------------------------%
+
+\subsection{Kolmogorov Axiome}
+\begin{equation*}
+    \begin{array}{l}
+    A1: P(A) \geq 0                                       \\
+    A2: P(\Omega) = 1\\
+    A3: P(A\cup B) = P(A) + P(B) \text{ falls } A \cap B = \varnothing
+    \end{array}
+\end{equation*}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Rechenregeln_Kolmogorov_Axiomen.png}
+\end{figure}
+
+%-----------------------------------------------------------------%
+\subsection{Summenformel}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Summenformel.png}
+\end{figure}
+Bsp nicht-fairer Würfel
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{pictures/Wahrscheinlichkeit_nicht-fairen_Würfel.png}
+\end{figure}
+\begin{equation*}
+    \begin{array}{l}
+        P(\Omega) = P(1)+P(2)+P(3)+P(4)+P(5)+P(6) \\
+        \\
+        = \frac{1}{3}+\frac{1}{6}+\frac{1}{12}+\frac{1}{4}+\frac{1}
+        {12}+\frac{1}{12} = 1
+    \end{array}
+\end{equation*}
+Für das Ereignis $A = \{ 1,2,4\}$ gilt
+\begin{equation*}
+P(A) = P(1)+P(2)+P(4) = \frac{1}{3}+\frac{1}{6}+\frac{1}{4} = \frac{3}{4}
+\end{equation*}
+%-----------------------------------------------------------------%
+\subsection{Laplace-Modell}
+Laplace-Model $\Rightarrow$ alle Elementarereignisse haben die gleiche Wahrscheinlichkeit.
+$m$ Elementarereignisse $\omega$ $\in$ Grundraum $\Omega$
+\begin{equation*}
+    P(\Omega) = \sum P(\omega) = mP(\omega) \Rightarrow P(\omega)= \frac{1}{m}
+\end{equation*}
+Besteht ein Ereignis $E$ aus $g$ verschiedenen Elementarereignissen
+\begin{equation*}
+    E = \{\omega_1,\omega_2,...,\omega_g\}
+\end{equation*}
+dann gilt
+\begin{equation*}
+    P(E) = P(\omega_1)+P(\omega_2)+...+P(\omega_g) = \frac{1}{m}+\frac{1}{m}+...+\frac{1}{m}= \frac{g}{m}
+\end{equation*}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Laplace_Wahrscheinlichkeit.png}
+\end{figure}
+Bsp. 2-faches Würfeln:
+\begin{equation*}
+    \Omega  = \{(1,1),(1,2),...,(6,5),(6,6)\}\Rightarrow 36 \text{ Elementarereignisse}
+\end{equation*}
+$E$ ist das Ereignis dass die Augensumme 7 ist.
+\begin{equation*}
+    E= \{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\}
+\end{equation*}
+\begin{equation*}
+    P(E) = \frac{|E|}{|\Omega|}= \frac{6}{36}= \frac{1}{6}
+\end{equation*}
+%-----------------------------------------------------------------%
+%-----------------------------------------------------------------%
+%-----------------------------------------------------------------%
+\chapter{Kombinatorik}
+\subsection{Variationen}
+\textbf{Ohne Reihenfolgen \underline{Menge}}
+\begin{equation*}
+    \{7,2,5\} = \{2,5,7\}
+\end{equation*}
+\textbf{Ohne Reihenfolge ohne Wiederholungen \underline{Menge}}
+\begin{equation*}
+    \{7,2,5\} = \{2,5,7,7\}
+\end{equation*}
+\textbf{Mit Reihenfolge \underline{Tupel}}
+\begin{equation*}
+    (7,2,5) \ne (2,5,7)
+\end{equation*}
+\begin{center}
+    \begin{tabular}{c|c|c}
+     \textbf{Reihenfolge} & \multicolumn{2}{c}{\textbf{Zurücklegen}} \\
+     & mit & ohne \\
+     \hline
+     &&\\
+     mit & $n^k$ & $\frac{n!}{(n-k)!}| n \ge k$\\
+     \hline
+     &&\\
+     ohne & $\left(\begin{array}{c}
+        n+k-1 \\
+        k 
+    \end{array}\right) = \frac{(n+k-1)!}{k!(n-1)!}$ & $\left(\begin{array}{c}
+        n \\
+        k 
+    \end{array}\right) = \frac{n!}{k!(n-k)!}$ \\
+\end{tabular}
+\end{center}
+\begin{equation*}
+    0! = 1
+\end{equation*}
+\textbf{Spezialfälle}\\
+$k = 0$
+\begin{equation*}
+    \left(\begin{array}{c}
+        n \\
+        0 
+    \end{array}\right) = \frac{n!}{(n-0)!0!} = 1
+\end{equation*}
+$k = 1$
+\begin{equation*}
+    \left(\begin{array}{c}
+        n \\
+        1 
+    \end{array}\right) = \frac{n!}{(n-1)!1!} = n
+\end{equation*}
+$k = 2$
+\begin{equation*}
+    \left(\begin{array}{c}
+        n \\
+        2
+    \end{array}\right) = \frac{n!}{(n-2)!2!} = \frac{n(n-1)}{2}
+\end{equation*}
+\subsection{Urnenmodell}
+\textbf{Ziehung mit Zurücklegen:}\\
+Aus einer Urne mit $n = 10$ Kugeln wird $k = 3$ mal gezogen
+\begin{equation*}
+    n \cdot n \cdot n = n^k = 10^3 = 1000 \text{ Variationen}
+\end{equation*}
+
+\textbf{Ziehung ohne Zurücklegen:}
+\begin{equation*}
+    n \cdot (n-1) \cdot (n-2) = 10 \cdot 9 \cdot 8 = 720 \text{ Variationen}
+\end{equation*}
+\begin{equation*}
+    10 \cdot 9 \cdot 8 = \frac{10 \cdot 9 \cdot 8  \cdots 2 \cdot 1 }{7 \cdot 6  \cdots 2 \cdot 1 }= \frac{10!}{7!} = \frac{n!}{(n-k)!}
+\end{equation*}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Variation_k-ter_Ordnung.png}
+\end{figure}
+\begin{lstlisting}
+math.pow(n, k)
+math.perm(n, k) == 
+math.factorial(n)//math.factorial(n-k) 
+# Ganzzahldivision
+\end{lstlisting}
+
+
+\textbf{Mit Berücksichtigung der Reihenfolge:}
+Zahlenschloss mit vier Ziffern zwischen 0 und 9.
+\begin{equation*}
+    m = V_\omega(10;4) = 10^4 = 10000 \text{ Variationen}
+\end{equation*}
+\textbf{Ohne Berücksichtigung der Reihenfolge:}
+Permutationen...
+
+%-----------------------------------------------------------------%
+
+\subsection{Permutationen}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Permutationen_von_n_Elementen.png}
+\end{figure}
+\begin{lstlisting}
+math.factorial(n) 
+math.factorial(n)// (math.factorial(n1)*math.factorial(n2)*math.factorial(n3))
+\end{lstlisting}
+Auf wie viele arten kann man $n= 6$ Buchstaben $A,B,C,D,E,F$ anordnen?
+\begin{equation*}
+    V(6;6) = 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 6! = 720 \text{ Permutationen}
+\end{equation*}
+
+Permutationen einer Urne mit 7 Kugeln davon 3 rot, 2 grün, 2 blau welche nicht unterschieden werden können.
+\begin{equation*}
+    \frac{7!}{3!\cdot 2! \cdot 2!} = \frac{7 \cdot 6 \cdot 5 \cdot 4}{2 \cdot 2} = 210 \text{ Permutationen}
+\end{equation*}
+
+
+%-----------------------------------------------------------------%
+
+
+\subsection{Kombinationen}
+Aus einer Urne mit $n = 10$ Kugeln wird $k = 3$ mal gezogen ohne auf die Reihenfolge zu achten.
+\begin{equation*}
+    \frac{10!}{7! \cdot 3!} = \frac{n!}{(n-k)!\cdot k!} = 120
+\end{equation*}
+Binomialkoeffizienten 10 tief 3
+\begin{equation*}
+    \left(\begin{array}{c}
+        10 \\ 3
+    \end{array}\right) = \frac{10!}{7! \cdot 3!}
+\end{equation*}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Kombinationen_k-ter_Ordnung.png}
+\end{figure}
+\begin{lstlisting}
+math.comb(n,k)
+math.factorial(n)//(math.factorial(n-k)*math.factorial(k))
+math.comb(n+k-1,k)
+\end{lstlisting}
+
+%-----------------------------------------------------------------%
+%-----------------------------------------------------------------%
+\section{Bedingte Wahrscheinlichkeit}
+\subsection{Unbedingte Wahrscheinlichkeit}
+$\Omega =$ Grundraum\\
+$A \subseteq \Omega = $ Ereignis\\
+$P(A) = $ Wahrscheinlichkeit dass $A$ eintritt.
+\subsection{Bedingte Wahrscheinlichkeit}
+Würfel (6-Seitig fair)
+\begin{equation*}
+    A = \{3\} \Rightarrow P(A) = \frac{1}{6}
+\end{equation*}
+\begin{equation*}
+    B = \{\text{Augenzahl ungerade}\}
+\end{equation*}
+Wahrscheinlichkeit für $A$ unter der Bedingung von $B$ 
+\begin{equation*}
+    P(A|B) = \frac{1}{3}
+\end{equation*}
+\textbf{Neuer Grundraum $\Omega' = B$}\\
+$P(A|B) = P(A)$ wenn der Grundraum $\Omega' = B$
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Ven_Diagramme_bedingte_Wahrscheinlichkeit.png}
+\end{figure}
+\begin{equation*}
+    P(A|B) = \frac{P(A\cap B)}{P(B)}
+\end{equation*}
+\textbf{Beyes Theorem}
+\begin{equation*}
+    P(A|B) = \frac{P(B|A)P(A)}{P(B)}
+\end{equation*}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Bedingte_Wahrscheinlichkeit_Rechenregeln.png}
+\end{figure}
+
+\subsection{Wahrscheinlichkeitsbäume}
+\begin{multicols*}{2}
+
+\begin{equation*}
+    \begin{array}{c}
+     B_5 \subseteq A_2\\
+     \\
+     \\
+     P(A_2|\Omega)= P(A_2)\\
+     \\
+     \\
+     P(B_5) = P(A_2 \cap B_5)\\
+     \\
+     = P(B_5 | A_2)\cdot P(A_2)\\
+     \\
+     \\
+     B_j \cap B_i = \varnothing | i \ne j\\
+     \\
+     \\
+     P(B_1 \cup B_2 \cup B_4)\\
+     \\
+     = P(B_1)+P(B_2)+P(B_4)
+\end{array}
+\end{equation*}
+
+\columnbreak
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Wahrscheinlichkeitsbaum.png}
+\end{figure}
+\end{multicols*}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Pfadregeln_Wahrscheinlichkeitsbaum.png}
+\end{figure}
+\textbf{Beispiel Würfel und Jasskarte}
+
+\[A = \{ \text{Augenzahl 3 und Jasskarte König} \}\]
+\[P(A) = \frac{1}{6}\cdot\frac{1}{36}+\frac{1}{6}\cdot\frac{1}{36}+\frac{1}{6}\cdot\frac{1}{36}+\frac{1}{6}\cdot\frac{1}{36} = 4\cdot\frac{1}{6}\cdot\frac{1}{36} = \frac{1}{54}\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pictures/Wahrscheinlichkeitsbaum_Würfel_Jasskarte.png}
+\end{figure}
+%-----------------------------------------------------------------%
+\subsection{Totale Wahrscheinlichkeit}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Gesetz_der_totalen_Wahrscheinlichkeit.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pictures/Wahrscheinlichkeitsbaum_totale_Wahrscheinlichkeit.png}
+\end{figure}
+%-----------------------------------------------------------------%
+%-----------------------------------------------------------------%
+\section{Der Begriff der Unabhängigkeit}
+\subsection{Stochastische Unabhängigkeit}
+$A,B$ heissen stochastisch unabhängig falls 
+\[P(A|B) = P(A) \Rightarrow \]
+\[\frac{P(A\cap B)}{P(B)} = P(A)\Rightarrow P(A\cap B) = P(A) \cdot P(B)\]
+\textbf{Beispiel Würfel und Jasskarte}
+
+%-----------------------------------------------------------------%
+%-----------------------------------------------------------------%
+
+\section{Zufallsvariablen}
+Eine \textit{Zufallsvariable} $X$ ist eine Funktion
+\begin{equation*}
+    \begin{array}{ll}
+    X: & \Omega \rightarrow W_X \subseteq \mathbb{R} \\
+     & \omega \rightarrow X(\omega)
+\end{array}
+\end{equation*}
+$W_X$ ist der \textit{Wertebereich} der Zufallsvariable $X$
+\textbf{Konventionen}\\
+\textbf{Grossbuchstaben} $X,Y,Z,...$ Zufallsvariablen (zufällige Werte)\\
+\textbf{Kleinbuchstaben} $x,y,z,...$ Realisierungen (feste Werte)
+\begin{center}
+    \centering
+    \begin{tabular}{lr}
+    Elementarereignis $\omega$ & $X(\omega)$\\
+    \hline
+     Ass& 11 \\
+     König & 4\\
+     Ober & 3\\
+     Unter & 2\\
+     Banner & 10\\
+     Neun & 0 \\
+     Acht & 0\\
+     Sieben & 0\\
+     Sechs & 0\\
+\end{tabular}
+\end{center}
+\begin{center}
+    \centering
+    \begin{tabular}{c|cccccc}
+    $x$ & $0$ & $2$ & $3$ & $4$ & $10$ & $11$\\
+    \hline
+    \\
+    $P(X=x)$ &$\frac{4}{9}$ &$\frac{1}{9}$ &$\frac{1}{9}$ &$\frac{1}{9}$ &$\frac{1}{9}$ &$\frac{1}{9}$
+\end{tabular}
+\end{center}
+\begin{lstlisting}
+import matplotlib.pyplot as plt
+# Wahrscheinlichkeitsverteilung der Werte von Jasskarten 
+werte = [0,2,3,4,10,11]
+prob = [4/9,1/9,1/9,1/9,1/9,1/9]
+plt.vlines(werte, 0, prob, "g")
+plt.plot(werte, prob, "go")
+plt.xlabel("Kartenwert x")
+plt.ylabel("Wahrscheinlichkeit P(X=x)")
+plt.title("Wahrscheinlichkeitsverteilung von Jasskartenwerten")
+plt.show()
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Python_Plot_Stabdiagramm_Wahrscheinlichkeitsverteilung.png}
+\end{figure}
+\textbf{Wahrscheinlichkeitsverteilung}
+\[\sum P(X=x) = 1\]
+\textbf{Diskrete Gleichverteilung}
+\[P(X=x) = \frac{1}{|W|} \text{ für } x \in W\]
+
+%-----------------------------------------------------------------%
+%-----------------------------------------------------------------%
+
+\section{Kennzahlen einer Verteilung}
+
+\subsection{Erwartungswert}
+\[E(X) = \sum x\cdot P(X=x) \]
+\textbf{Erwartungswert der diskreten \textit{uniformen} Verteilung}\\
+Im Intervall $[a,b]$
+\[E(X)= \sum_{x= 1}^{n}x = \frac{n(n+1)}{2} \]
+\[E(X)=\sum_{x=a}^{b}xP(X=x) = \frac{a+b}{2}\]
+\subsection{Varianz}
+„das Quadrat der Standardabweichung”\\
+\textbf{Varianz der diskreten \textit{uniformen} Verteilung}\\
+Im Intervall $[a,b]$
+\[Var(X) = \frac{(b-a+1)^2-1}{12}\]
+\subsection{Standardabweichung}
+„mittlere Abweichung eines Werts $X$ vom Erwartungswert $E(X)$”
+\textbf{Standardabweichung der diskreten \textit{uniformen} Verteilung}\\
+Im Intervall $[a,b]$
+\[ \sigma(X) = \sqrt{\frac{(b-a+1)^2-1}{12}}\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Varianz_Standardabweichung.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Varianz_Zufallsvariablen.png}
+\end{figure}
+
+\subsection{Kennzahlen der Bernoulli-Verteilung}
+\[p \in [0,1]\]
+\[P(X = 1) = p \text{ und } P(X=0)=1-p\]
+\[E(X) = p\]
+\[Var(X) = p(1-p)\]
+\[\ \sigma (X) = \sqrt{p(1-p)}\]
+
+\section{Kumulative Verteilungsfunktion}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Kumulative_Verteilungsfunktion.png}
+\end{figure}
+
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+values_jass = [-1,0,2,3,4,10,11,12]
+prob_jass = np.array([0,4/9,1/9,1/9,1/9,1/9,1/9,0])
+cum_jass = np.cumsum(prob_jass)
+plt.step(values_jass,cum_jass, where="post")
+plt.show()
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Python_Plot_Kumulative_Verteilungsfunktion.png}
+\end{figure}
+\subsection{Quantile}
+\begin{lstlisting}
+import numpy as np
+werte = [0,2,3,4,10,11]
+prob = [4/9,1/9,1/9,1/9,1/9,1/9]
+kum = np.cumsum(prob) 
+q = 0.8
+x_q = werte[np.argmin(kum<q)]
+print(x_q)
+10
+\end{lstlisting}
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+values_jass = [-1,0,2,3,4,10,11,12]
+prob_jass = np.array([0,4/9,1/9,1/9,1/9,1/9,1/9,0])
+cum_jass = np.cumsum(prob_jass)
+plt.step(values_jass,cum_jass,where="post")
+plt.plot([-1,12],[0.8,0.8], "r")
+plt.show()
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Python_Kumulative_Verteilungsfunktion_Quantil.png}
+\end{figure}
+\textbf{Spezielle Quantile}
+\begin{itemize}
+    \item \textit{unteres Quartil} q = 1/4
+    \item \textit{Median} q = 1/2
+    \item \textit{oberes Quartil} q = 3/4
+\end{itemize}
+
+
+%-----------------------------------------------------------------%
+%-----------------------------------------------------------------%
+
+\section{Bernoulliverteilung}
+\[X \sim \text{Bernoulli}(p)\]
+\[P(X=x) = p\]
+\[P(X = 0) = 1-p\]
+\[0 \leq p \leq 1\]
+
+
+%-----------------------------------------------------------------%
+%-----------------------------------------------------------------%
+
+\section{Binomialverteilung}
+\textbf{Variationen}
+\[V(2;n) = 2^n\]
+\textbf{Binomialverteilung}
+\begin{itemize}
+    \item \textbf{festen} Anzahl von n
+    \item \textbf{unabhängigen} Wiederholungen
+    \item \textbf{konstanten} Erfolgswahrscheinlichkeit p
+\end{itemize}
+\[P(X=x)=\left(\begin{array}{c}
+     n \\
+     x 
+\end{array}\right) p^x(1-p)^{n-x}\]
+\[ \left(\begin{array}{c}
+     n \\
+     x 
+\end{array}\right)= \frac{n!}{(n-x)!\cdot x!}\]
+\[x \in \{0,1,\dots,n\}\]
+\[0 \leq p \leq 1\]
+\[X \sim \text{Binomial}(n,p) \text{ oder } X \sim \text{Bin}(n,p)\]
+\textbf{Münzwurf}\\
+$n=5$ faire und unabhängige Münzwürfe in welchen $x=3$ mal Kopf geworfen wird. $X = \{KKKZZ,\dots\}$
+\[C(5;3) = \left(\begin{array}{c}
+     5\\
+     3
+\end{array}\right) = 10 \text{ Wörter}\]
+\[P(X=3)=\left(\begin{array}{c}
+     5 \\
+     3 
+\end{array}\right) 0.5^3(1-0.5)^{5-3}\]
+\begin{lstlisting}
+n=5
+p=0.5
+x=3
+print(math.comb(n,x)*p**x*(1-p)**(n-x))
+# 0.3125
+\end{lstlisting}
+
+\begin{lstlisting}
+import numpy as np
+from scipy.stats import binom
+print(binom.pmf(k=3, n=5, p=.5))
+# 0.31249999999999983
+\end{lstlisting}
+
+\textbf{Gewinne in 100 Losen}
+\[X \sim \text{Bin}(100,0.2)\]
+\[P(X=20)=\left(\begin{array}{c}
+     100 \\
+     20 
+\end{array}\right) 0.2^{20}0.8^{80} = 0.0993\]
+\[P(15\leq X \leq 25) = P(X=15)+P(X=16)+\dots\]
+
+\begin{lstlisting}
+n, p = 100, 0.2
+ran = np.arange(15,26)
+binom.pmf(ran, n, p).sum()
+# 0.83
+\end{lstlisting}
+
+\textbf{Python Plot}
+\[X \sim \text{Bin}(10,0.3)\]
+\begin{lstlisting}
+import matplotlib.pyplotasplt
+from scipy.stats import binom
+import numpy as np
+n,p=10,0.3
+x=np.arange(n+1)
+y=binom.pmf(x,n,p)
+plt.vlines(x,0,y,"g")
+plt.plot(x,y,"go")
+plt.xlabel("AnzahlGewinne")
+plt.ylabel("Wahrscheinlichkeit")
+plt.show()
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Python_Bin_Stabdiagramm.png}
+\end{figure}
+
+%-----------------------------------------------------------------%
+
+
+\subsection{Kennzahlen der Binomialverteilung}
+\[E(X) = np\]
+\[Var(X) = np(1-p)\]
+\[\sigma(X) = \sqrt{np(1-p)}\]
+
+\subsection{Kumulative Verteilung der Binomialverteilung}
+\[P(X\leq 50)\]
+\begin{lstlisting}
+from scipy.stats import binom
+binom.cdf(k=50, n=100, p=.5)
+\end{lstlisting}
+
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import binom
+n, p = 100, 0.5
+x = np.arange(n+1)
+y = binom.cdf(x, n, p)
+plt.step(x, y, "g", where="post")
+plt.plot(x, y, "go")
+plt.xlabel("x")
+plt.ylabel("F(x)")
+plt.title("Kumulative Verteilung Binomial(100,0.5)")
+plt.show()
+\end{lstlisting}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Python_Bin_Kumulative_Verteilungsfunktion.png}
+\end{figure}
+
+\subsection{Quartile und Median}
+\[X \sim \text{Bin}(100,0.3)\]
+\begin{lstlisting}
+import numpy as np
+from scipy.stats import binom
+n, p = 100, 0.3
+q = [0.25,0.5,0.75]
+x_q = binom.ppf(q, n, p)
+print(x_q)
+# [27. 30. 33.]
+\end{lstlisting}
+
+%-----------------------------------------------------------------%
+%-----------------------------------------------------------------%
+
+\chapter{Wahrscheinlichkeitsverteilung}
+\section{Kontinuierliche Verteilungen}
+\[P(X_\infty= x) = \frac{1}{^\infty} = 0\]
+
+%-----------------------------------------------------------------%
+
+\subsection{Kumulative Verteilungsfunktion}
+
+\[F(x) = P(X \leq x)\]
+\[P(a < X\leq b) = F(b)-F(a)\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Kumulative_Verteilungsfunktion_arctan.png}
+\end{figure}
+\[F(x) = \frac{1}{\pi}(\frac{\pi}{2}+\arctan{x})\]
+für $a < b$
+\[F(a) < F(b)\]
+daher ist 
+\[F'(x) \geq 0 \]
+\[F(-\infty)  = P(X\leq - \infty) = 0\]
+\[F(\infty) = F(X\leq \infty )  = 1\]
+\textbf{Hauptsatz der Integralrechnung}
+\[\int\limits_{a}^{b} F'(x)\mathrm{dx} =F(b)-F(a) = P(a < X\leq b)\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Hauptsatz_Integral_Dichtefunktion.png}
+\end{figure}
+\textbf{Merkregel}\\
+Für kontinuierliche Wahrscheinlichkeitsverteilungen entsprechen Wahrscheinlichkeiten Flächeninhalten unter der Dichtefunktion.
+
+%-----------------------------------------------------------------%
+
+\subsection{Wahrscheinlichkeitsdichte}
+\[f(x) = F'(x)\]
+\[P(a < X\leq b) = \int\limits_{a}^{b} f(x)\mathrm{dx}\]
+\textbf{Eigenschaften Wahrscheinlichkeitsdichte}
+\[f(x)\geq 0\]
+\[P(a < X\leq b) = F(b)-F(a) = \int\limits_{x=a}^{b} f(x)\mathrm{dx}\]
+\[\int\limits_{-\infty}^{\infty} f(x)\mathrm{dx} = 1\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Dichtefunktion_arctan.png}
+\end{figure}
+\[f(x) = F'(x) = \frac{1}{\pi}\cdot \frac{1}{1+x^2}\]
+
+%-----------------------------------------------------------------%
+
+\subsection{Kennzahlen von kontinuierlichen Verteilungen}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Erwartungswert_Var_Standardabweichung_kontinuierliche_Verteilung.png}
+\end{figure}
+\[Var(X) = E(X^2)-E(X)^2\]
+
+\subsection{Symmetrische Wahrscheinlichkeitsverteilung}
+Eine kontinuierliche Wahrscheinlichkeitsverteilung heisst \textit{symmetrisch}, wenn ihre Dichtefunktion gerade ist.\\
+\[E(X) = x_{0.5} = 0 \text{ und } x_q = -x_{1-q}\]
+
+%-----------------------------------------------------------------%
+
+\section{Wichtige kontinuierliche Verteilungen}
+\subsection{Uniforme Verteilung}
+\[X \sim \text{Uniform}([a,b])\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Definition_kontinuierliche_uniforme_Wahrscheinlichkeitsverteilung.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Uniforme_Vertielung_plot.png}
+\end{figure}
+\[F(x) = \left\{ \begin{array}{rcl} 0 & \mbox{falls}& x < a \\
+\frac{x-a}{b-a} & \mbox{falls} & a\leq x\leq b\\
+1 & \mbox{falls} & x>b\end{array}\right.\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Kennzahlen_der_uniformen_Verteilung.png}
+\end{figure}
+\textbf{.pdf} Wahrscheinlichkeitsdichtefunktion Uniform$([1,10])$ an der Stelle $x= 5$
+\[f(5) = 0.111111111111\]
+\begin{lstlisting}
+from scipy.stats import uniform
+print(uniform.pdf(x=5,loc=1,scale=9))
+#f(5) = 0.1111111111111111
+\end{lstlisting}
+\textbf{.cdf} Kumulative Verteilungsfunktion $P(X\leq 5)$ für Uniform$([1,10])$
+\begin{lstlisting}
+print(uniform.cdf(x=5,loc=1,scale=9))
+#P(X<=5) = 0.4444444444444444
+\end{lstlisting}
+\textbf{.rvs} Stichprobe der Grösse 5 (random variates)
+\begin{lstlisting}
+print(uniform.rvs(loc=1,scale=9,size=5))
+#[1.99659943 6.681875 4.76873157 5.23400277 2.26752196]
+\end{lstlisting}
+\textbf{.ppf} Percent point function 0.3-Quantil
+\begin{lstlisting}
+print(uniform.ppf(q=0.3,loc=1,scale=9))
+#3.6999999999999997
+\end{lstlisting}
+
+%-----------------------------------------------------------------%
+
+\subsection{Exponentialverteilung}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Definition_Exponentialverteilung.png}
+\end{figure}
+\[F(x) = \left\{\begin{array}{rcl}
+    1- e^{-\lambda x} & \text{falls} & x \geq 0 \\
+    0 & \text{falls} & x<0
+\end{array}\right.\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Plot_Exponentialverteilung.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Kennzahlender_Exponentialverteilung.png}
+\end{figure}
+\textbf{.pdf} Wahrscheinlichkeitsdichte bei $x=0$\\
+\textbf{.ppf} $0.777$-Quantil $x_{0.777}$\\
+\textbf{.rvs} 5 Stichproben\\
+\textbf{scale} $= \frac{1}{\lambda}$
+\begin{lstlisting}
+print(expon.pdf(x=0,scale=1/3))
+print(expon.ppf(q=0.777,scale=1/3))
+print(expon.rvs(scale=1/3,size=5))
+#3.0
+#0.5001945025073394
+#[0.23461664 0.0194209 0.27955267 0.25887989 0.77258205]
+\end{lstlisting}
+
+%-----------------------------------------------------------------%
+
+\subsection{Normalverteilung (Gauss-Verteilung)}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Definition_Normalverteilung.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Plot_Normalverteilung.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Kennzahlen_der_uniformen_Verteilung.png}
+\end{figure}
+\[P(X\leq 100) = F(100) = 0.5\]
+\textbf{scale} $=$ Standartabweichung\\
+\textbf{loc} $=$ Erwartungswert
+\begin{lstlisting}
+from scipy.stats import norm
+print(norm.cdf(x=100, loc=100, scale=15))
+#0.5
+\end{lstlisting}
+\[x_{0.25} = 89.8827\]
+\begin{lstlisting}
+print(norm.ppf(q=0.25, loc=100, scale=15))
+#89.88265374705878
+\end{lstlisting}
+\begin{lstlisting}
+print(norm.ppf(q=[0.025,0.975],loc=100,scale=15))
+#[70.60054023 129.39945977]
+\end{lstlisting}
+
+%-----------------------------------------------------------------%
+
+\subsection{Standardnormalverteilung}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Definition_Standardnormalverteilung.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Plot_Standardnormalverteilung.png}
+\end{figure}
+\[P(X\leq 1.13)\]
+\begin{lstlisting}
+from scipy.stats import norm
+print(norm.cdf(x=1.13))
+#0.8707618877599821
+\end{lstlisting}
+
+%-----------------------------------------------------------------%
+
+\section{Multivariate Verteilungen}
+\[P(\{ X_1= 1\} \cap \{X_2 = 1\}) = P\left(X = \left[\begin{array}{c}
+     1\\
+     1
+\end{array}\right]\right)\]
+%-----------------------------------------------------------------%
+
+\subsection{Unabhängigkeit}
+\textbf{Unabhängigkeit von Zufallsvariablen}
+\[P(\{ X_1 \leq 1\} \cap \{X_2 \leq 1\}) = P(\{ X_1 \leq 1\})\cdot P(\{X_2 \leq 1\})\]
+\textbf{Unabhängigkeit diskreter und binären Zufallsvariablen}
+\[P(\{ X_1= 1\} \cap \{X_2 = 1\}) = P(\{ X_1= 1\})\cdot P(\{X_2 = 1\})\]
+\textbf{Unabhängigkeit Prüfen}\\
+Münzwurf und eine Kugle aus einer Urne mit 4 roten und 6 grünen Kugeln ziehen.
+\[X_1 = \left\{ \begin{array}{cc}
+    1 & Kopf\\
+    0 & sonst
+\end{array}\right. \text{ und }X_2 = \left\{ \begin{array}{cc}
+    1 & rot\\
+    0 & sonst
+\end{array}\right. \]
+Berechnen von
+\[P(X_1 = 0 \text{ und } X_2 = 0) = \frac{1}{2}\cdot \frac{6}{10} = \frac{3}{10}\]
+und
+\[P(X_1 = 0) = \frac{1}{2}\]
+\[P(X_2 = 0) = \frac{1}{2}\cdot \frac{6}{10}+\frac{1}{2}\cdot \frac{6}{10} = \frac{3}{5}\]
+Vergleichen beider
+\[P(X_1 = 0 \text{ und } X_2 = 0) = P(X_1 = 0)\cdot P(X_2 = 0) =  \frac{1}{2}\cdot \frac{3}{5} = \frac{3}{10}\]
+Folglich sind Münze und Kugel \textit{stochastisch unabhängig}
+%-----------------------------------------------------------------%
+
+\subsection{Gemeinsame, Rand und bedingte Verteilungen}
+\textbf{Wahrscheinlichkeitsbäume Münze Kugel}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Multivarianter_Baum.png}\\
+    unabhängig links, abhängig rechts
+\end{figure}
+\textbf{Wetterstation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pictures/Multivariante_Wetterstation.png}\\
+\end{figure}
+\textbf{Gemeinsame Verteilung unabhängiger Zufallsvar. \textit{violett}}
+\[P(X = x,Y = y) = P(X = x) \cdot P(Y= y)\]
+\textbf{Randverteilung $\sum$\textit{orange} $=$ \textit{blau}}\\
+\[P(X = x) = \sum_{y\in W_y} P(X= x,Y = y) \text{ für alle } x \in W_x\]
+\[P(Y=y) = \sum_{x\in W_x} P(X= x,Y = y)\text{ für alle } y \in W_y\]
+
+\textbf{bedingte Verteilung \textit{$\sum$orange $= 1$ (normiert)}}
+\[P(X=x|Y= y) = \frac{P(X= x, Y= y)}{P(Y=y)} \text{ für alle } x \in W_x\]
+\[P(Y = 1|X = 4)  =\frac{\text{blau}}{\text{grün}} =  \frac{0.001}{0.100}\]
+
+\textbf{Randverteilung durch bedingte Verteilung}
+\[P(X = x )  = \sum_{y \in W_y} P(X= x |Y = y)\cdot P(Y= y)\]
+\textbf{Erwartungswert der Randverteilung}
+\[E(X) = \sum_{x \in W_x}x\cdot P(X = x)\]
+\textbf{bedingter Erwartungswert von X gegeben Y}
+\[E(X|Y= y) = \sum_{x \in W_x}x\cdot P(X = x|Y=y)\]
+%-----------------------------------------------------------------%
+
+\subsection{Kontinuierliche Zufallsvariablen}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Gemeinsame_Dichte_Wahrscheinlichkeit.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{pictures/Integrationsgebiet_Rechteck.png}
+\end{figure}
+\textbf{Wahrscheinlichkeit von Rechteckgebieten}
+\[\{(x,y)|a\leq x\leq b, c \leq y \leq d\}\]
+\[P(a\leq X\leq b, c \leq Y \leq d) = \int\limits_{y=c}^{d}\int\limits_{x=a}^{b} f_{X,Y}(x,y) \mathrm{d}x\mathrm{d}y\]
+\textbf{Randverteilungen}
+\[f_X(x) = \int\limits_{-\infty}^{\infty}f_{X,Y}(x,y)\mathrm{d}y \textbf{ und } f_Y(y) = \int\limits_{-\infty}^{\infty}f_{X,Y}(x,y)\mathrm{d}x\]
+\[\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Multivariante_Verteilung_kontinuierlich_plot.png}
+\end{figure}
+
+\textbf{Unabhängigkeit kontinuierlicher Zufallsvariablen}\\
+$X_1,X_2$ sind \textit{stochastisch Unabhängig} wenn
+\[f_{X_1,X_2}(x_1,x_2) = f_{X_1}(x_1)\cdot f_{X_2}(x_2)\]
+\textbf{Bedingte Dichte}\\
+\textit{bedingte Verteilung} von $X$ gegeben $Y=y$
+\[f_{X|Y=y}(x) = f_X(x|Y= y) = \frac{f_{X,Y(x,y)}}{f_Y(y)}\]
+\textbf{Unabhängigkeit und bedingte Dichte}
+\[f_{Y|X=x}(y) = f_Y(y) \textbf{ und }f_{X|Y=y}(x) = f_X(x)\]
+\textbf{bedingter Erwartungswert}
+\[E(X|Y= y) = \int\limits_{-\infty}^{\infty}x\cdot f_{X|Y= y}(x)\mathrm{d}x\]
+%-----------------------------------------------------------------%
+
+\subsection{Erwartungswert von transformierten Zufallsvariablen}
+transformierte Zufallsvariable $Z = g(X,Y)$
+\[E(g(x,y)) = \int\limits_{-\infty}^{\infty}\int\limits_{-\infty}^{\infty}g(x,y)\cdot f_{X,Y}(x,y) \mathrm{d}x\mathrm{d}y\]
+\textbf{Der Erwartungswert ist linear}
+\[E(aX+bY) = aE(X)+bE(Y)\]
+\textbf{Unabhängigkeit und Erwartungswert}
+\[E(XY) = E(X)\cdot E(Y)\]
+\subsection{Kovarianz und Korrelation}
+\textbf{Kovarianz}\\
+Falls grosse Werte von $X$ grosse Werte von $Y$ wahrscheinlicher machen - dann wird die Kovarianz positiv ausfallen.
+\[\text{Cov}(X,Y) = E((X-E(X))\cdot(Y-E(Y)))\]
+\[\text{Cov}(X,Y) = E(XY)-E(X)E(Y)\]
+\textbf{Symmetrische Bilinearform}\\
+Linearität im ersten Argument:
+\[\text{Cov}(a_1X_1+a_2X_2,Y) = a_1\text{Cov}(X_1,Y)+a_2\text{Cov}(X_2,Y)\]
+Linearität im zweiten Argument:
+\[\text{Cov}(X,b_1Y_1+b_2Y_2) = b_1\text{Cov}(X,Y_1)+b_2\text{Cov}(X,Y_2)\]
+\textbf{Symmetrie}
+\[\text{Cov}(X,Y) = \text{Cov}(Y,X)\]
+\textbf{Unabhängigkeit und Kovarianz}\\
+Sind $X,Y$ \textit{stochastisch unabhängig} dann gilt
+\[\text{Cov}(X,Y) = 0\]
+und Zufallsvariablen $X,Y$ heissen \textit{unkorreliert}\\
+\textbf{Varianz als Kovarianz}
+\[\text{Var}(X) = \text{Cov}(X,X)\]
+\textbf{Unabhängigkeit und Varianz}\\
+Wenn $X,Y$ unkorreliert sind, dann gilt
+\[\text{Var}(X+Y) = \text{Var}(X)+\text{Var}(Y)\]
+Varianz ist nicht linear
+\[\text{Var}(aX)= a^2\text{Var}(X)\]
+\textbf{Korrelation}
+\[\text{Cor}(X,Y) = \rho_{XY} = \frac{\text{Cov}(X,Y)}{\sigma_X\sigma_Y}\]
+\textbf{Unkorreliertheit}
+\[\text{Cor}(X,Y) = 0\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Korrelation_Eigenschaften.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Korrelation_plot.png}
+\end{figure}
+%-----------------------------------------------------------------%
+\begin{comment}
+
+\subsection{Zweidimensionale Normalverteilung}
+\textbf{Erwartungsvektor}\\
+Der \textit{Erwartungsvektor} einer bivariaten Zufallsvariablen $\left[\begin{array}{c}
+     X\\
+     Y
+\end{array}\right]$ ist
+\[\mu = \left[\begin{array}{c}
+     E(X)\\
+     E(Y)
+\end{array}\right]=\left[\begin{array}{c}
+     \mu_X\\
+     \mu_Y
+\end{array}\right]\] 
+\textbf{Kovarianzmatrix}\\
+Die \textit{Kovarianzmatrix} einer bivariaten Zufallsvariablen $\left[\begin{array}{c}
+     X\\
+     Y
+\end{array}\right]$ ist
+\[\Sigma = \left[ \begin{array}{cc}
+    \text{Cov}(X,X) & \text{Cov}(X,Y) \\
+    \text{Cov}(Y,X) & \text{Cov}(Y,Y)
+\end{array}\right]\]
+\[\Sigma = \left[ \begin{array}{cc}
+    \text{Var}(X) & \text{Cov}(X,Y) \\
+    \text{Cov}(Y,X) & \text{Var}(Y)
+\end{array}\right] = \left[ \begin{array}{cc}
+    \sigma_X^2 & \sigma_{X,Y} \\
+    \sigma_{X,Y}  & \sigma_Y^2
+\end{array}\right]\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Bivariate_Normalvertielung.png}
+\end{figure}
+\textbf{Unabhängigkeit und Unkorreliertheit von bivariaten Normalverteilungen}
+\[\text{Cor}(X,Y) = 0 \Rightarrow X,Y \text{ sind unabhängig}\]
+    
+\end{comment}
+%-----------------------------------------------------------------%
+
+\section{Transformationen}
+\[Y = g(X)\]
+\subsection{Lineare Transformation}
+\[y=g(x) = a+bx\]
+\textbf{Temperaturtransformation Celsius - Fahrenheit}
+\[T_F = \frac{9}{5}\cdot T_C +32\]
+\[E(T_F) = \frac{9}{5} \cdot E(T_C)+E(32)=\frac{9}{5} \cdot E(T_C)+32\]
+\[\text{Var}(T_F) = \text{Var}(\frac{9}{5}\cdot T_C)+\text{Var}(32) = \left(\frac{9}{5}\right)^2 \text{Var}(T_C)\]
+\[\sigma(T_F) = \sqrt{\text{Var}(T_F)}=\frac{9}{5}\cdot \sigma(T_C)\]
+\textbf{Dichtefunktion linear}
+\[f_Y(y) = \frac{1}{|b|}f_X\left(\frac{y-a}{b}\right)\]
+\textbf{Normalverteilung}
+\[Y = a+bX\]
+\[Y \sim \mathcal{N}(a+b\mu,(b\sigma)^2)\]
+Dichtefunktion
+\[f_Y(y) = \frac{1}{b\sigma \sqrt{2 \pi}}\text{exp}\left(-\frac{(y-(a+b\mu))^2}{2(b\sigma)^2}\right)\]
+%-----------------------------------------------------------------%
+
+\subsection{Standardisieren}
+\textbf{Allgemein}
+\[\mu  = E(X) ~\text{und}~ \sigma = \sigma(X)\]
+\[Z = \frac{X- \mu}{\sigma}\Rightarrow E(Z) = 0~ \text{und} ~ \sigma(Z) = 1\]
+\textbf{Normalverteilung}
+\[ X \sim \mathcal{N}(\mu,r^2)\Rightarrow Z = \frac{X-\mu}{\sigma} \sim \mathcal{N}(0,1^2)\]
+\textbf{Beispiel $90\%$-Quantil}
+\[X \sim \mathcal{N}(1,4) \rightarrow \mu = 1,~\sigma = 2\]
+\[P(X\leq \gamma) = 0.9 \Rightarrow P\left(Z\leq \frac{\gamma-\mu}{\sigma}\right) = 0.9 \Rightarrow \Phi \left(\frac{\gamma-\mu}{\sigma}\right) = 0.9\]
+\[\frac{\gamma-\mu}{\sigma} = \Phi^{-1}(0.9) = 1.28\]
+\[\gamma = \mu + 1.28\sigma = 1+1.28\cdot 2 = 3.56\]
+%-----------------------------------------------------------------%
+
+\begin{comment}
+\subsection{Allgemeine Transformation einer Zufallsvariablen}
+\[y = g(x) \text{ mit } x\in I \Leftrightarrow x = g^{-1}(y) \text{ mit } y \in J\]
+\textbf{Dichtefunktion}
+\[Y= g(X)\]
+\[f_Y(y) = \frac{1}{g'(g^{-1}(y))}f_X\left(g^{-1}(y)\right) \text{ für } y \in J\]
+\end{comment}
+
+\textbf{Quantile}
+\[y_q = g(x_q)\]
+%-----------------------------------------------------------------%
+
+\subsection{Funktion von mehreren Zufallsvariablen}
+\textbf{i.i.d.} \textbf{i}ndependent, \textbf{i}dentically \textbf{d}istributed\\
+\\
+\textbf{Kennzahlen von Summen und Mittelwerten}\\
+Sind $X_1,\dots ,X_n$ i.i.d., dann gilt für die \textbf{Summe $S_n$}
+\[\begin{array}{ccc}
+    E(S_n) = n\mu & \text{Var}(S_n) = n\sigma^2 &\sigma(S_n) = \sqrt{n}\sigma
+\end{array}\]
+und ihren \textbf{Mittelwert $\overline{X}$}
+\[\begin{array}{ccc}
+    E(\overline{X}) = \mu & \text{Var}(\overline{X}) = \frac{\sigma^2}{n} &\sigma(\overline{X}) = \frac{\sigma}{\sqrt{n}}
+\end{array}\]
+\textbf{Standardfehler}
+\[\sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}\]
+\textbf{Reproduktivitätseigenschaft der Normalverteilung}\\
+Sind $X_1,\dots,X_n$ unabhängig und normalverteilt
+\[Y = a_1X_1+\cdots+a_nX_n = \sum_{i=1}^na_iX_i\]
+\[Y\sim \mathcal{N}\left(\sum_{i=1}^na_i\mu_i,\sum_{i=1}^na_i^2\sigma_i^2\right)\]
+\textbf{Summe und Mittelwert unter Normalverteilung}\\
+Sind $X_1,\dots,X_n$ unabhängig und normalverteilt
+\[S_n = X_1+\cdots+X_n = \sum_{i=1}^nX_i \text{ und } \overline{X} = \frac{1}{n}(X_1+\cdots+X_n)\]
+\[S_n \sim \mathcal{N}\left(n\mu,n\sigma^2\right) \text{ und } \overline{X} \sim \mathcal{N}\left(\mu,\frac{\sigma^2}{n}\right)\]
+%-----------------------------------------------------------------%
+
+\chapter{Hypothesentests}
+\section{Normalverteilte Daten}
+\subsection{Allgemeines}
+\textbf{arithmetisches Mittel}
+\[\overline{x} = \frac{1}{n}\sum_{i=1}^{n}x_i\]
+\textbf{empirische Varianz}
+\[s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i-\overline{x})^2\]
+\textbf{empirische Standartabweichung}
+\[s = \sqrt{s^2}\]
+\begin{lstlisting}
+from pandas import Series
+g = Series([9.81,9.792,9.856,...])
+print(g.mean())
+print(g.var())
+print(g.std())
+#9.798
+#0.0014
+#0.037
+\end{lstlisting}
+%-----------------------------------------------------------------%
+
+\subsection{Simulation von Messungen}
+\begin{lstlisting}
+import numpy as np
+from scipy.stats import norm
+np.random.seed(1)
+mu = 9.81 # Erdbeschleunigung aus dem Lehrbuch in m/s^2
+sigma = 0.03 # Standardabweichung (angenommen)
+n_sim = 15 # Anzahl Messungen
+# Eine Simulation
+g_sim = norm.rvs(size=n_sim, loc=mu, scale=sigma)
+g_sim = Series(np.round(g_sim,3))
+print('Simulierte Werte: ')
+print(g_sim)
+print('Mittelwert: ', g_sim.mean())
+print('Standardabweichung: ', g_sim.std())
+#Simulierte Werte:
+#0 9.859 ...
+#Mittelwert: 9.807733333333333
+#Standardabweichung: 0.03772734261715736
+\end{lstlisting}
+\subsection{Punktschätzer}
+\textbf{Schätzwerte Parameter}
+\[\begin{array}{ccccc}
+     \widehat{\mu} = \overline{x} & \text{und} & \widehat{\sigma^2} = s^2 & \text{und} &\widehat{\sigma} = s
+\end{array}\]
+\textbf{Zufallsvariable}\\
+Der \textbf{Mittelwert} von $X_1,\dots,X_n$ ist
+\[\overline{X} = \frac{1}{n}\sum_{i=1}^{n}X_i\]
+Die \textbf{empirische Varianz} von $X_1,\dots,X_n$ ist
+\[S^2 = \frac{1}{n-1}\sum_{i=1}^{n}(X_i-\overline{X})^2\]
+\[\begin{array}{cccc}
+    E(\overline{X}) = \mu &\text{Var}(\overline{X}) = \frac{\sigma^2}{n} & \sigma(\overline{X}) = \frac{\sigma}{\sqrt{n}} & E(S^2) = \sigma^2
+\end{array}\]
+\textbf{Erwartungstreue}\\
+\begin{comment}
+Einen Punkteschätzer $\Theta = \widehat{\vartheta}$ eines Parameters $\vartheta$ nenne wir \textbf{erwartungstreu}, wenn 
+\[E(\Theta) = E(\widehat{\vartheta}) = \vartheta\]
+Anderenfalls nennen wir den Punktschätzer \textbf{verzerrt}.\\
+\end{comment}
+Die empirische Standardabweichung
+\[S = \sqrt{S^2}\]
+ist \textbf{kein erwartungsgetreuer} Schätzer von $\sigma$, sie ist \textbf{verzert}.\\
+\\
+\textbf{Korrektur der empirischen Standardabweichung}\\
+Der Korrekturfaktor $c_4(n)$ hängt nur von der Stichprobengrösse $n$ ab
+\[\frac{S}{c_4(n)}\]
+\[c_4(n) \leq 1 \text{ und } \lim_{n\rightarrow\infty}c_4(n) = 1\]
+%-----------------------------------------------------------------%
+
+\subsection{Wahrscheinlichkeit extremer Abweichungen}
+\textbf{einseitig extrem}
+\[P(\overline{X}\leq \widehat{\mu})\]
+\[\begin{array}{ccc}
+    P(X\leq x) = F(x)  & \text{ falls } & x <\mu \\
+    P(X\geq x) = 1-F(x)  & \text{ falls } & x >\mu 
+\end{array}\]
+mit gegebener Wahrscheinlichkeit
+\[(-\infty,x_\alpha]\]
+\[[x_{1-\alpha},\infty)\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Hypothesentest_Extremwerte_Einseitig.png}
+\end{figure}
+\begin{lstlisting}
+mu = 9.81
+sigma = 0.03
+n = g.size
+mu_hat = g.mean()
+std_err = sigma/np.sqrt(n)
+P = norm.cdf(mu_hat, loc=mu, scale=std_err)
+print(P)
+#0.06601302812480199
+\end{lstlisting}
+\textbf{\ zweiseitig extrem}
+\[P(|X-\mu|\geq |x-\mu|) = 2F(x) \]
+mit gegebener Wahrscheinlichkeit
+\[(-\infty,x_{\frac{\alpha}{2}}]\cup [x_{1-\frac{\alpha}{2}},\infty)\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Hypothesentest_Extremwerte_Zweiseitig.png}
+\end{figure}
+%-----------------------------------------------------------------%
+
+\section{Hypothesentest: $z$-Test}
+\textbf{Modell:}
+\[X_1,\dots,X_n\text{ i.i.d } \sim \mathcal{N}(\mu,\sigma^2)\]
+\textbf{Annahme:} $\sigma$ \textbf{ist bekannt}\\
+\textbf{Nullhypothese}
+\[H_0: \mu = \mu_0\]
+\textbf{Alternativhypothese} (zweiseitig)
+\[H_A: \mu \neq \mu_0\]
+\textbf{Signifikanzniveau $\alpha$}\\
+\textbf{Teststatistik:}
+\[\overline{X} = \frac{1}{n}\sum_{i= 1}^{n}X_i\]
+\textbf{Verteilung} unter $H_0$
+\[\overline{X}\sim \mathcal{N}\left(\mu_0,\frac{\sigma^2}{n}\right)d\]
+\textbf{\textit{zweiseitiger} Verwerfungsbereich} (orange)
+\[K  = (-\infty,k_1]\cup [k_2,\infty)\]
+wobei $k_1 < \mu < k_2$
+\[P(\overline{X}\in K) = P(\overline{X}\leq k_1)+P(\overline{X}\geq k2) = \alpha\]
+\begin{lstlisting}
+n = 15
+mu0 = 9.81
+sigma = 0.03
+std_err = sigma/np.sqrt(n)
+alpha = 0.05
+K = norm.ppf(q=[alpha/2, 1-alpha/2], loc=mu0, scale=std_err)
+K = np.round(K,3)
+print('Verwerfungsbereich K = (-inf,',K[0],']u[',K[1],',inf)')
+#Verwerfungsbereich K = (-inf, 9.795 ]u[ 9.825 ,inf)
+\end{lstlisting}
+\begin{itemize}
+    \item Falls $\overline{x}\in K$, wird $H_0$ \textbf{verworfen} und $H_A$ ist wahr.
+    \item Falls $\overline{x}\notin K$, wird $H_0$ \textbf{nicht verworfen} ist aber dennoch nicht wahr.
+\end{itemize}
+%-----------------------------------------------------------------%
+
+\subsection{Standardisierung und Normalverteilung}
+Ist $X$ normalverteilt
+\[X\sim\mathcal{N}(\mu,\sigma^2)\]
+dann ist die standardisierte Zufallsvariable
+\[Z = \frac{X-\mu}{\sigma}\]
+standardnormalverteilt:
+\[Z\sim\mathcal{N}(0,1)\]
+\[\begin{array}{ccc}
+     E(Z)= 0 & \text{und} & \text{Var}(Z) = 1
+\end{array}\]
+\textbf{Teststatistik:}
+\[Z = \frac{\overline{X}-\mu_0}{\sigma/\sqrt{n}} = \frac{\text{beobachtet}-\text{erwartet}}{\text{Standartfehler}}~\text{wobei}~\overline{X}=\frac{1}{n}\sum_{i=1}^{n}X_i\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Verwerfungsbereich.png}
+\end{figure}
+\[z_{0.05} = -1.64\]
+\begin{lstlisting}
+print(norm.ppf(q=0.05))
+#-1.6448536269514729
+\end{lstlisting}
+%-----------------------------------------------------------------%
+
+\section{Hypothesentest: $P$-Test}
+\textbf{P-Wert}
+\begin{itemize}
+    \item $H_A:\mu < \mu_0\leadsto P= P(X\leq x) = F(x)$ (linksseitig)
+    \item $H_A:\mu > \mu_0\leadsto P= P(X\geq x) = 1-F(x)$ (rechtsseitig)
+    \item $H_A:\mu \neq \mu_0\leadsto P= P(|X-\mu_0|\geq |x-\mu_0|) = 2F(x)$ (zweiseitig)
+\end{itemize}
+\textbf{Testentscheid mit Grenzwert $\alpha$}
+\begin{itemize}
+    \item Falls $P \leq \alpha$, dann wird $H_0$ \textbf{verworfen}
+    \item Falls $P > \alpha$, dann wird $H_0$ \textbf{nicht verworfen}
+\end{itemize}
+\textbf{Signifikanzniveaus $\alpha$}
+\begin{itemize}
+    \item $P\lesssim 0.1$: schwach Signifikant
+    \item $P\lesssim 0.05$: Signifikant
+    \item $P\lesssim 0.001$: stark Signifikant
+    \item $P\leq 10^{-1}$: äusserst Signifikant
+    
+\end{itemize}
+
+
+\textbf{Signifikanzniveau$\alpha$ in abhängigkeit von n}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/Stichprobengrösse_vs_P_Wert.png}
+\end{figure}
+%-----------------------------------------------------------------%
+
+\section{Fehler beim Hypothesentest}
+\begin{tipbox}{Fehlerarten}
+\begin{itemize}
+    \item \textit{Fehler 1. Art:} Obwohl $H_0$ wahr ist, wird $H_0$ fälschlicherweise 
+    verworfen (\textbf{falscher Alarm})
+    \item \textit{Fehler 2. Art:} Obwohl $H_A$ wahr ist, wird $H_0$ fälschlicherweise nicht verworfen (\textbf{verpasster Alarm})
+\end{itemize}
+\end{tipbox}
+%-----------------------------------------------------------------%
+
+\subsection{Wahrscheindlichkeit eines Fehlers}
+Bei einem Hypothesentest mit Teststatistik \textbf{X} und Verwerfungsbereich \textbf{K} ist die Wahrscheinlichkeit für einen...
+\begin{tipbox}{Fehler erster Art}
+\[P(\text{Fehler erster Art}) = P(X\in K) = \alpha\]
+unter der Annahme, dass $H_0$ wahr ist.
+\end{tipbox}
+
+\begin{tipbox}{Fehler zweiter Art}
+\[P(\text{Fehler zweiter Art}) = P(X\notin K) = \beta\]
+unter der Annahme einer Ausprägung $H_A$.
+\end{tipbox}
+%-----------------------------------------------------------------%
+
+\subsection{Beispiel Fehler zweiter Art}
+\begin{lstlisting}
+from pandas import Series
+g = Series([9.796, 9.79 , 9.779, 9.797, 9.79 , 9.799, 9.792, 9.787, 9.8 ,9.793])
+print(g.std())
+0.006290204024248124
+\end{lstlisting}
+\[\begin{array}{cc}
+    \sigma \simeq 0.01 & \alpha = 0.05 \\
+\end{array}\]
+\[H_0: \mu = 9.81\]
+\begin{lstlisting}
+import numpy as np
+from scipy.stats import norm
+n = g.size
+alpha = 0.05
+mu0 = 9.81
+sigma = 0.01
+std_err = sigma/np.sqrt(n)
+K = np.round(norm.ppf(q=[alpha/2,1-alpha/2],loc=mu0,scale=std_err),3)
+g_bar = np.round(g.mean(),3)
+#Verwerfungsbereich K = (-inf, 9.804 ]u[ 9.816 ,inf)
+#Mittelwert g_bar = 9.792
+\end{lstlisting}
+Da nun $\overline{g}\in K$ ist wird $H_0$ verworfen.\\
+Im ersten Test wurde diese nicht verworfen $\Rightarrow$ zweiter Fehler.\\
+\textbf{Wahrscheinlichkeit zweiter Fehler}
+\[\mu  = g = 9.79\]
+\[K = (-\infty,9.795]\cup[9.825,\infty)\]
+
+\[\begin{array}{c}
+     \beta = P_{H_A}(\overline{X}\notin K) = P_{H_A} (9.795 < X < 9.825)\\
+     = P_{H_A} (X \leq 9.825)-P_{H_A} (X \leq 9.795)
+\end{array}\]
+
+
+\begin{lstlisting}
+mu = 9.79
+n = g.size
+sigma = 0.03
+std_err = sigma/np.sqrt(n)
+beta = norm.cdf(9.825,loc=mu,scale=std_err)-norm.cdf( 9.795,loc=mu,scale=std_err)
+print(beta)
+#0.298968300955776
+\end{lstlisting}
+Die Wahrscheinlichkeit für einen zweiten Fehler beträgt also $30\%$.\\
+
+\begin{tipbox}{Trade-Off}
+Bei festen Parameterwerten (beim $z$-Test $\mu,\sigma,n$) gilt:
+\[\alpha =P(\text{Fehler 1. Art}) \textbf{ klein } \Leftrightarrow \beta = P(\text{Fehler2.Art}) \textbf{ gross}\]
+\end{tipbox}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Fehler_erster_zweiter_Art.png}
+\end{figure}
+
+\begin{tipbox}{Macht}
+Die \textbf{Macht} eines Hypothesentests mit Teststatistik X und Verwerfungsbereich K ist definiert als
+\[\begin{array}{rcl}
+    \text{Macht} & = & 1-P(\text{Fehler zweiter Art})\\
+    &= & P(\text{Verwerfen von $H_0$ falls $H_A$ stimmt})\\
+    & = & P_{H_A} (X \in K)
+\end{array}\]
+unter der Annahme einer Ausprägung von $H_A$.
+\end{tipbox}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Macht_z_Test.png}
+\end{figure}
+\section{$t$-Test}
+\begin{tipbox}{$t$-Verteilung}
+Es sei
+\[X_1,\dots , X_n \text{ i.i.d. } \sim \mathcal{N}(\mu,\sigma^2)\]
+Wir betrachten die Zufallsvariable
+\[\begin{array}{cccc}
+    T = \frac{\overline{X}-\mu}{S/\sqrt{n}} & \text{mit} & \overline{X} = \frac{1}{n}\sum_{i = 1}^{n} X_i & \text{und}
+\end{array}\]
+\[S = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(X_i-\overline{X})^2}\]
+Die Verteilung von $T$ heisst \textbf{Student $t$-Verteilung mit $n - 1$ Freiheitsgraden.}\\
+Wir schreiben
+\[T\sim t_{n-1}\]
+\end{tipbox}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/t_m_Verteilung.png}
+\end{figure}
+\begin{tipbox}{Kennzahlen $t$-Verteilung}
+Es sei
+\[T \sim t_m\]
+Dann gilt
+\[\begin{array}{ccc}
+    E(T) = 0 & \text{und} & \text{Var}(T) = \frac{m}{m-2}
+\end{array}\]
+\end{tipbox}
+\pytopic{$t$-Verteilung}
+\[X_i \sim \mathcal{N}(\mu,\sigma^2)\]
+\[\begin{array}{cc}
+    H_0: \mu = 5 &  H_A: \mu < 5\\
+\end{array}\]
+\begin{lstlisting}
+from scipy.stats import t
+x=Series([5.9,3.4,6.6,6.3,4.2,2.0,...])
+x_bar=x.mean()
+sigma_hat=x.std()
+print(x_bar)
+print(sigma_hat)
+#5.215000000000001
+#1.8838021462764578
+\end{lstlisting}
+\[\widehat{\sigma} = 1.8838 \]
+\[\widehat{\mu} = \overline{x} = 5.215\]
+Standardisierung:
+\begin{lstlisting}
+t_value = (x_bar-5)/(sigma_hat/np.sqrt(20))
+print(t_value)
+#0.510408819856927
+\end{lstlisting}
+\[t = 0.5104\]
+\[T \sim t_{19}\]
+\[P(T\leq t)=P(T\leq 0.5104)=F(0.5104)\]
+Wahrscheinlichkeit dass $H_0$ verworfen wird:
+\begin{lstlisting}
+print(t.cdf(x=t_value,df=19))
+#0.6921780567888249
+\end{lstlisting}
+
+\pytopic{Shortcut}
+\begin{lstlisting}
+t.cdf(x=x_bar, df=19, loc=5, scale=sigma_hat/np.sqrt(20)) #0.6921780567888249
+\end{lstlisting}
+\pytopic{Berechnung des zweiseitigen Verwerfungsbereichs}
+\begin{lstlisting}
+from scipy.stats import t
+mu0 = 9.81
+n = g.size
+alpha = 0.05
+sigma_hat = g.std()
+std_err = sigma_hat/np.sqrt(n)
+g_bar = g.mean()
+K = t.ppf(q=[alpha/2, 1-alpha/2], df=n-1)
+K = np.round(K,3)
+
+#Verwerfungsbereich K = (-inf,-2.145 ]u[ 2.145 ,inf)
+\end{lstlisting}
+\[K =(-\infty,-2.145]\cup[2.145,\infty)\]
+\begin{lstlisting}
+t_value = (g_bar-mu0)/std_err
+#t =-1.2024925492143
+\end{lstlisting}
+Da $t = -1.202\notin K$ ist, wird $H_0$ nicht verworfen.\\
+\pytopic{Alternative}
+\begin{lstlisting}
+P = 2*t.cdf(t_value, df=n-1)
+#0.24911668839889195
+\end{lstlisting}
+Da $P = 0.249 > \alpha =0.05$,wird $H_0$ nicht verworfen.
+%-----------------------------------------------------------------%
+
+\section{Statistische Tests bei zwei Stichproben}
+Vergleich zwischen zwei Gruppen von Messwerten hinsichtlich der Lage der Verteilung.
+\subsection{Gepaarte Stichproben}
+Es liegt eine \textit{gepaarte} Stichprobe vor, wenn
+\begin{itemize}
+    \item beide Versuchsbedingungen an derselben Versuchseinheit eingesetzt werden
+    \item oder wenn jede Versuchseinheit aus der einen Gruppe genau eine Versuchseinheit aus der anderen Gruppe zugeordnet werden kann.
+\end{itemize}
+\textbf{Datenstruktur:}
+\[\begin{array}{cc}
+    x_1,\dots,x_i & \text{aus Gruppe 1} \\
+    y_1,\dots,y_i & \text{aus Gruppe 2} \\
+    x_i\leftrightarrow y_i&\text{sind einander zugeordnet}
+\end{array}\]
+\textbf{Beispiel}\\
+Wir testen den Muskelzuwachs aufgrund von Krafttraining. Dazu messen wir die Kraft von 10 Testpersonen zu Beginn des Trainings. Nach 6-wöchigem Trainingsprogramm wird die Messung widerholt.\\
+Für jede Testperson gibt es also zwei Messungen: Vorher und nachher, wobei die Zuordnung eindeutig ist.
+%-----------------------------------------------------------------%
+
+\subsection{$t$-Test für gepaarte Stichproben}
+Man Vergleicht die Differenzen innerhalb der Paare.
+\[d_i = x_i -y_i (i = 1,\dots,n)\]
+Zufallsvariablen
+\[D_1,\dots, D_n\]
+Kein unterschied zwischen den beiden Versuchsbedingungen heisst
+\[E(D_i) = 0\]
+\textbf{Modell:}
+\[D_1,\dots, D_n \text{ i.i.d. } \sim \mathcal{N}(\mu,\sigma^2)\]
+\pytopic{Krafttraining}
+\[\begin{array}{cc}
+    H_0: \mu = 0 & H_A:\mu \neq 0 \\
+\end{array}\]
+\pyname{ttest\_1samp}
+\begin{lstlisting}
+vorher = Series([25, 25, 27, 44, 30, 67, 53, 53, 52, 60])
+nachher = Series([27, 29, 37, 56, 46, 82, 57, 80, 61, 59])
+d = vorher-nachher
+test = st.ttest_1samp(a=d, popmean=0)
+print(test.pvalue)
+#0.0044894517372048096
+\end{lstlisting}
+Alternativ \pyname{ttest\_rel}
+\begin{lstlisting}
+test = st.ttest_rel(nachher, vorher)
+print(test.pvalue)
+#0.0044894517372048096
+\end{lstlisting}
+\[\begin{array}{cc}
+    H_0: \mu = 0 & H_A:\mu < 0 \\
+\end{array}\]
+Da \pyname{d} negativ erwartet wird wird mit \pyname{'less'} gearbeitet. Alternativ kann für positive Erwartungswerte \pyname{'greater'} verwendet werden.\\
+\pyname{ttest\_1samp}
+\begin{lstlisting}
+test = st.ttest_1samp(a=d, popmean=0, alternative='less')
+print(test.pvalue)
+#0.0022447258686024048
+\end{lstlisting}
+Alternativ \pyname{ttest\_rel} \\
+Es wird hier \pyname{nachher - vorher} gerechnet somit ist der Erwartungswert positiv $\Rightarrow$ \pyname{'greater'}
+\begin{lstlisting}
+test = st.ttest_rel(nachher, vorher, alternative='greater')
+print(test.pvalue)
+#0.0022447258686024048
+\end{lstlisting}
+%-----------------------------------------------------------------%
+
+\subsection{Ungepaarte Stichproben}
+Es liegt eine \textit{ungepaarte} Stichprobe vor, wenn
+\begin{itemize}
+    \item zwei Stichproben $x_1,\dots,x_n$ und $y_1,\dots,y_m$ aus zwei Populationen stammen
+    \item wir nicht voraussetzen dass $m = n$ gelten muss (kann es jedoch).
+    \item $x_i$ und $y_i$ zu \textit{verschiedenen} Versuchseinheiten gehören (üblicherweise)
+\end{itemize}
+\textbf{Beispiel}\\
+Erdbeschleunigungsmessung mit zwei \textit{verschiedenen} Messmethoden wie Fallexperiment (Falldauer) und Pendelexperiment (Periodendauer).
+%-----------------------------------------------------------------%
+
+\subsection{Zwei-Stichproben $t$-Test für ungepaarte Stichproben}
+\[\begin{array}{ll}
+    \textbf{Modell:} & X_1,\dots,X_n \text{ i.i.d. } \sim \mathcal{N}(\mu_X,\sigma_X^2) \\
+     & Y_1,\dots,Y_m \text{ i.i.d. } \sim \mathcal{N}(\mu_Y,\sigma_Y^2)\\
+     & X_1,\dots,X_n,Y_1,\dots,Y_m \text{ unabhängig}
+\end{array}\]
+\textbf{Standardabweichungs Fälle:}
+\begin{itemize}
+    \item \textbf{Bekannte} Varianzen $\sigma_X^2$ und $\sigma_Y^2$
+    \item \textbf{Unbekannte}, aber \textbf{gleiche} Varianz: $\sigma_X = \sigma_Y$
+    \item \textbf{Unbekannte} und \textbf{ungleiche} Varianz: $\sigma_X \neq \sigma_Y$
+\end{itemize}
+
+\subtopic{Unbekannte gleiche Varianz}
+\[E(\overline{X}-\overline{Y}) = \mu_X-\mu_Y\]
+\[\text{Var}(\overline{X}-\overline{Y}) = \frac{\sigma_X^2}{n}+\frac{\sigma_Y^2}{m}\]
+\[Z = \frac{\overline{X}-\overline{Y}}{\sqrt{\frac{\sigma_X^2}{n}+\frac{\sigma_Y^2}{m}}}\sim\mathcal{N}(0,1)\]
+\[\begin{array}{lr}
+    K = (-\infty,z_\frac{\alpha}{2}]\cup[z_{1-\frac{\alpha}{2}},\infty) & \text{(zweiseitig)} \\
+     K = (-\infty,z_\alpha]& \text{(linkseitig)} \\
+     K = [z_{1-\alpha},\infty) & \text{(rechtseitig)}
+\end{array}\]
+\subtopic{Unbekannte gleiche Varianz}
+\[\text{Var}(\overline{X}-\overline{Y}) = \frac{\sigma^2}{n}+\frac{\sigma^2}{m} = \sigma^2\left(\frac{1}{n}+\frac{1}{m}\right)\]
+\begin{tipbox}{Gepoolte Varianz}
+Der \textbf{gepoolte Schätzer} der Varianz $\sigma^2$ ist drfinert durch
+\[S_p^2 = \frac{(n-1)S_X^2+(m-1)S_Y^2}{n+m-2}\]
+wobei
+\[\begin{array}{ccc}
+    S_X^2 = \frac{1}{n-1}\sum_{i= 1}^n(X_i-\overline{X})^2 & \text{und} &S_Y^2 = \frac{1}{m-1}\sum_{i= 1}^m(Y_i-\overline{Y})^2 \\
+\end{array}\]
+\end{tipbox}
+\begin{tipbox}{$t$-Verteilung bei zwei Stichproben gleicher Varianz}
+Unter den oben beschriebenen Voraussetzungen ist die Zufallsvariable 
+\[T = \frac{\overline{X}-\overline{Y}-(\mu_X-\mu_Y)}{S_p\sqrt{\frac{1}{n}+\frac{1}{m}}}\]
+$t$-verteilt mit $n+m-2$ Freiheitsgraden,also
+\[T \sim t_{n+m-2}\]
+\end{tipbox}
+\subtopic{Unbekannte und ungleiche Varianz}
+\[\text{Var}(\overline{X}-\overline{Y}) = \frac{\sigma_X^2}{n}+\frac{\sigma_Y^2}{m}\]
+\begin{tipbox}{$t$-Verteilung bei zwei Stichproben ungleicher Varianz}
+Unter den oben beschriebenen Voraussetzungen ist die Zufallsvariable 
+\[T^* = \frac{\overline{X}-\overline{Y}-(\mu_X-\mu_Y)}{\sqrt{\frac{S_X^2}{n}+\frac{S_Y^2}{m}}}\]
+ungefähr $t$-verteilt,wobei die Anzahl der Freiheitsgeraden der ganzzahlige Anteil von
+\[v = \frac{\left(\frac{s_X^2}{n}+\frac{s_Y^2}{m}\right)^2}{\frac{(s_X^2/n)^2}{n-1}+\frac{(s_Y^2/m)^2}{m-1}}\]
+ist.
+\end{tipbox}
+\pytopic{Unbekannte und ungleiche Varianz}\\
+Wir nutzen \pyname{ttest\_ind()} zu berechnung des \textbf{P}-Wertes. Da wir von ungleichen Varianzen ausgehen \pyname{equal\_var=False}
+\begin{lstlisting}
+g_Fall = Series([9.803, 9.792, 9.856,...])
+g_Pendel = Series([9.796, 9.79 , 9.779,...])
+test = st.ttest_ind(g_Fall, g_Pendel, equal_var=False)
+print('P = ', test.pvalue)
+print('t^* = ', test.statistic)
+print('df = ',test.df)
+#P = 0.551420129048001
+#t^* = 0.6091888990349497
+#df = 15.16002140038034
+\end{lstlisting}
+\pyname{statistic} $(t^*)$ ist der beobachtete Wert der Teststatistik $T^*$\\
+\pyname{df = 15} $\Rightarrow 15$ Freiheistgrade\\
+\textbf{P}-Wert von $0.5514 \Rightarrow$ Differenz von $5\%$ und somit nicht Signifikant. 

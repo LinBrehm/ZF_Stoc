@@ -1,0 +1,195 @@
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage[german]{datetime}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{kantlipsum}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{chngcntr}
+\usepackage{tocloft}
+\usepackage{titlepic}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{url}
+\usepackage[colorlinks=false]{hyperref}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{minted}
+\usemintedstyle{friendly}  % Choose a style (friendly, colorful, monokai, etc.)
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{trsym,trfsigns}
+\usepackage{tikz}
+\usepackage{trsym,trfsigns}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Recommended for newerversions
+
+
+
+\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
+
+% Definition der Grün-Töne
+\definecolor{ChapterColor}{HTML}{296153}
+\definecolor{SectionColor}{HTML}{3c8974}
+\definecolor{SubsectionColor}{HTML}{50b49b}
+\definecolor{VerySubsectionColor}{HTML}{50b49b}
+\definecolor{TipBoxColor}{HTML}{cce0da}
+
+% Titelfarbe Scheiblechner 3c8974
+
+% Definition der Blau-Töne
+\definecolor{LightBlue}{HTML}{EAF7FF}
+\definecolor{DarkBlue}{HTML}{005F9E}
+
+
+%-----Seitenränder-----%
+\usepackage[a4paper, left=1cm, right=1cm, top=2cm, bottom=2cm]{geometry}
+
+%-----Spalteneinstellungen-----%
+\setlength{\columnsep}{20pt}
+\setlength{\columnseprule}{0.5pt} % Dicke der vertikalen Linie
+\setlength{\parskip}{1pt}
+
+
+
+
+%-----Titelformatierungen-----%
+\titleformat{\chapter}{\sffamily\Large\bf\sffamily\rlap{\color{ChapterColor}\rule[-0.5ex]{\linewidth}{3ex}\vspace{-3ex}}\sffamily\Large\bf\sffamily\color{white}}{\thechapter}{15pt}{}
+\titleformat{\section}{\sffamily\large\bf\sffamily\rlap{\color{SectionColor}\rule[-0.5ex]{\linewidth}{3ex}\vspace{-3ex}}\sffamily\large\bf\sffamily\color{white}}{\thesection}{3pt}{}
+\titleformat{\subsection}{\sffamily\rlap{\color{SubsectionColor}\rule[-0.5ex]{\linewidth}{3ex}\vspace{-3ex}}\sffamily\sffamily\color{white}}{\thesubsection}{3pt}{}
+\titleformat{\subsubsection}{\sffamily\rlap{\color{VerySubsectionColor}\rule[-0.5ex]{\linewidth}{3ex}\vspace{-3ex}}\sffamily\sffamily\color{black}}{\thesubsection}{3pt}{}
+
+%subtopic Title
+\newcommand{\subtopic}[1]{\textbf{\sffamily\textcolor{SectionColor}{#1}}}
+%pythontopic
+\newcommand{\pytopic}[1]{\textbf{\sffamily\textcolor{blue}{#1}}}
+
+
+
+%\titleformat{\subsubsection}{\sffamily}{\thesubsection}{10pt}{}
+\titlespacing*{\chapter}{5pt}{5pt}{5pt}
+\titlespacing*{\section}{5pt}{5pt}{5pt}
+\titlespacing*{\subsection}{5pt}{5pt}{5pt}
+\renewcommand{\cfttoctitlefont}{\Huge\bf\sffamily}
+\renewcommand{\cftloftitlefont}{\sffamily\section}
+\renewcommand{\cftlottitlefont}{\sffamily\section}
+\addtocontents{lof}{\protect\vspace{-3\baselineskip}}
+\addtocontents{lot}{\protect\vspace{-3\baselineskip}}
+\addtocontents{toc}{\protect\vspace{-3\baselineskip}}
+\captionsetup{font={sf}}
+\renewcommand{\normalsize}{\fontsize{8}{8}\selectfont}
+\titleclass{\chapter}{straight}
+
+%Python function hint
+\newcommand{\pyname}[1]{\textcolor{blue}{\texttt{#1}}}
+
+
+
+
+%-----Kopf- und Fusszeile-----%
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\today}
+\chead{}
+\rhead{STOC - Linus Brehm}
+\renewcommand{\headrulewidth}{0.1pt}
+\lfoot{HSLU T\&A}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\footrulewidth}{0.1pt}
+%Kopf- und Fusszeile erzwingen überall
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+%-----Zähler-----%
+\newcounter{simplecount}
+\setcounter{simplecount}{0}
+\renewcommand{\theequation}{\arabic{simplecount}}
+\newcommand{\owncount}{\refstepcounter{simplecount}}
+
+\newcounter{simplecount2}
+\setcounter{simplecount2}{0}
+\renewcommand{\thetable}{\arabic{simplecount2}}
+\newcommand{\tabularcount}{\refstepcounter{simplecount2}}
+
+\newcounter{simplecount3}
+\setcounter{simplecount3}{0}
+\renewcommand{\thefigure}{\arabic{simplecount3}}
+\newcommand{\figurecount}{\refstepcounter{simplecount3}}
+
+
+\newcounter{simplecount4}
+\setcounter{simplecount4}{1}
+\renewcommand{\theequation}{\arabic{simplecount4}}
+\newcommand{\equationcount}{\refstepcounter{simplecount4}}
+
+%-----Abbildungsbeschriftung-----%
+\counterwithout{figure}{chapter}
+
+\renewcommand{\cftfigpresnum}{Abbildung }
+\renewcommand{\cfttabpresnum}{Tabelle }
+
+\renewcommand{\cftfigaftersnum}{:}
+\renewcommand{\cfttabaftersnum}{:}
+
+\setlength{\cftfignumwidth}{2.5cm}
+\setlength{\cfttabnumwidth}{2.5cm}
+
+\setlength{\cftfigindent}{0cm}
+\setlength{\cfttabindent}{0cm}
+
+\renewcommand{\figurename}{Abbbildung}
+\renewcommand{\tablename}{Tabelle}
+
+\setlength{\parindent}{0pt}
+
+%--------Python Code config--------%
+\lstset{
+  language=Python,                     % Python syntax highlighting
+  basicstyle=\ttfamily\small,          % Monospaced font, small size
+  backgroundcolor=\color{gray!8},      % Light gray background
+  numbers=left,                        % Line numbers on the left
+  numberstyle=\tiny\color{gray},       % Gray line numbers
+  numbersep=5pt,                       % Distance of numbers from code
+  tabsize=4,                           % Tabs = 4 spaces
+  showstringspaces=false,              % Don’t mark spaces in strings
+  breaklines=true,                     % Wrap long lines
+  keywordstyle=\color{blue}\bfseries,  % Keywords in bold blue
+  commentstyle=\color{green!50!black}, % Comments in green
+  stringstyle=\color{orange},             % Strings in orange
+  %identifierstyle=\color{orange},      % Identifiers (variables, function names) in orange
+  morekeywords={factorial,pow,perm,self, as, None, True, False, classmethod, staticmethod}, % Extra Python keywords
+}
+
+%---Math----------------------------------------%
+\let\oldint\int
+\renewcommand{\int}{\oldint\limits}
+%
+\let\oldsum\sum
+\renewcommand{\sum}{\oldsum\limits}
+
+% Tip box
+\newtcolorbox{tipbox}[2][]{
+	%enhanced,
+	boxrule=0pt,
+	%frame hidden,
+    %borderline west={4pt}{0pt}{TipBoxColor},
+	colback=TipBoxColor,
+	colbacktitle=TipBoxColor,
+	fonttitle=\bfseries\sffamily,
+	coltitle=black,
+	sharp corners,
+	title={#2},
+	top=0pt,
+	%bottomtitlte=0pt,
+	#1
+}
+    
